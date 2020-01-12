@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link href="register.style.client.css" rel="stylesheet"/>
+    <title>Sign Up</title>
+</head>
+<body>
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-sm-12 col-md-4 col-xs-12">
+            <h1>Sign Up</h1>
+            <form action="">
+                <div class="form-group">
+                    <label class="col-form-label" for="username">Username</label>
+                    <input type="text" class="form-control wbdv-field wbdv-username" id="username"
+                           placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="password">Password</label>
+                    <input type="password" class="form-control wbdv-field wbdv-password"
+                           id="password"
+                           placeholder="Enter Password">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="verify-password">Verify Password</label>
+                    <input type="password" class="form-control wbdv-field wbdv-password-verify"
+                           id="verify-password"
+                           placeholder="Re-enter Password">
+                </div>
+                <button type="submit" id="registerButton"
+                        class="btn btn-primary btn-block wbdv-button wbdv-register">Sign
+                    Up
+                </button>
+                <a href="/login/login.template.client.html" class="wbdv-link wbdv-login">Login</a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
