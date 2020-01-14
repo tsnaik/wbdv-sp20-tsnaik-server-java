@@ -14,6 +14,9 @@
         <div class="col-md-5">
             <h1>Edit Profile</h1>
             <div>
+                <div id="topAlert" class="alert alert-success wbdv-message" role="alert">
+                    Profile saved successfully.
+                </div>
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label" for="username">Username</label>
                     <div class="col-sm-9">
@@ -25,21 +28,21 @@
                 <div class="form-group row">
                     <label for="phone" class="col-sm-3 col-form-label">Phone</label>
                     <div class="col-sm-9">
-                        <input type="tel" class="form-control" id="phone"
+                        <input type="tel" class="form-control wbdv-field wbdv-phone" id="phone"
                                placeholder="(999) 999-9999">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="email" class="col-sm-3 col-form-label">Email</label>
                     <div class="col-sm-9">
-                        <input type="email" class="form-control" id="email"
+                        <input type="email" class="form-control wbdv-field wbdv-email" id="email"
                                placeholder="bob@builder.com">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="role" class="col-sm-3 col-form-label">Role</label>
                     <div class="col-sm-9">
-                        <select class="custom-select" id="role">
+                        <select class="custom-select wbdv-field wbdv-role" id="role">
                             <option value="Faculty" selected>Faculty</option>
                             <option value="Student">Student</option>
                             <option value="Admin">Admin</option>
@@ -50,15 +53,19 @@
                 <div class="form-group row">
                     <label for="dob" class="col-sm-3 col-form-label">Date of Birth</label>
                     <div class="col-sm-9">
-                        <input type="date" class="form-control" id="dob" value="1996-02-18">
+                        <input type="date" class="form-control wbdv-field wbdv-dob" id="dob"
+                               value="1996-02-18">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class=" col-sm-4 offset-sm-3">
-                        <a href="/" class="btn btn-outline-danger btn-block">Logout</a>
+                        <a href="/"
+                           class="btn btn-outline-danger btn-block wbdv-button wbdv-update">Logout</a>
                     </div>
                     <div class=" col-sm-5 mt-2 mt-sm-0">
-                        <button type="submit" class="btn btn-success btn-block">Update</button>
+                        <button type="submit"
+                                class="btn btn-success btn-block wbdv-button wbdv-logout">Update
+                        </button>
                     </div>
                 </div>
             </div>
