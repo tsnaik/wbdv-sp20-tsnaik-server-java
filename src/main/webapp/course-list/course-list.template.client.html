@@ -12,18 +12,23 @@
     <title>Course List | Whiteboard</title>
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar sticky-top navbar-dark bg-dark">
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-4">
-                <span class="navbar-brand">Course List</span>
+        <div class="row w-100">
+            <div class="col-1 mt-1 ">
+                <button class="navbar-toggler wbdv-field wbdv-hamburger" type="button">
+                    <span><i class="fas fa-bars"></i></span></button>
+            </div>
 
+            <div class="col-4 d-none d-sm-block">
+                <span class="navbar-brand wbdv-label wbdv-course-manager ">Course Manager</span>
             </div>
-            <div class="col-6">
-                <input class="form-control" type="text" placeholder="New Course Title">
+            <div class="col-6 offset-1 offset-sm-0">
+                <input class=" form-control wbdv-field wbdv-new-course" type="text"
+                       placeholder="New Course Title">
             </div>
-            <div class="col-2 mt-1">
+            <div class="col-1 mt-1">
             <span class="wbdv-button wbdv-add-course"><i
                     class="fa fa-plus-circle fa-2x text-light"></i></span>
             </div>
@@ -40,19 +45,24 @@
                     <thead>
                     <tr>
                         <th scope="col"></th>
-                        <th scope="col">Title</th>
-                        <th class="d-none d-md-table-cell" scope="col">Owned By</th>
-                        <th class="d-none d-md-table-cell" scope="col">Last Modified</th>
+                        <th scope="col" class="wbdv-header wbdv-title">Title</th>
+                        <th class="d-none d-md-table-cell wbdv-header wbdv-owner" scope="col">Owned
+                            By
+                        </th>
+                        <th class="d-none d-md-table-cell wbdv-header wbdv-last-modified"
+                            scope="col">Last Modified
+                        </th>
                         <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row"><i class="fas fa-book"></i></th>
-                        <td>CS 5610 - Web Development</td>
-                        <td class="d-none d-md-table-cell">Jose Annunziato</td>
-                        <td class="d-none d-md-table-cell">1/14/2020</td>
-                        <td><i class="fas fa-trash"></i></td>
+                    <tr class="wbdv-row wbdv-course">
+                        <th scope="row" class="wbdv-row wbdv-icon"><i class="fas fa-book"></i></th>
+                        <td class="wbdv-row wbdv-title">CS 5610 - Web Development</td>
+                        <td class="d-none d-md-table-cell wbdv-row wbdv-owner">Jose Annunziato</td>
+                        <td class="d-none d-md-table-cell wbdv-row wbdv-modified-date">1/14/2020
+                        </td>
+                        <td><i class="fas fa-trash wbdv-row wbdv-button wbdv-delete"></i></td>
                     </tr>
                     <tr>
                         <th scope="row"><i class="fas fa-book"></i></th>
