@@ -13,10 +13,9 @@
 </head>
 <body>
 <nav class="navbar sticky-top navbar-dark bg-dark">
-
     <div class="container-fluid">
         <div class="row w-100">
-            <div class="col-1 mt-1 ">
+            <div class="col-1 mt-1">
                 <button class="navbar-toggler wbdv-field wbdv-hamburger" type="button">
                     <span><i class="fas fa-bars"></i></span></button>
             </div>
@@ -28,15 +27,37 @@
                 <input class=" form-control wbdv-field wbdv-new-course" type="text"
                        placeholder="New Course Title">
             </div>
-            <div class="col-1 mt-1">
-            <span class="wbdv-button wbdv-add-course"><i
-                    class="fa fa-plus-circle fa-2x text-light"></i></span>
+            <div class="col-1">
+                <button type="button" class="btn wbdv-button wbdv-add-course"><i
+                        class="fa fa-plus-circle fa-lg text-light"></i></button>
             </div>
         </div>
     </div>
     </div>
 </nav>
-</body>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="row justify-content-end w-100">
+            <div class="col-1 mx-1">
+                <button type="button" class="btn">
+                    <i class="fas fa-th fa-lg float-right"></i>
+                </button>
+            </div>
+            <div class="col-1 mx-1">
+                <button type="button" class="btn">
+                    <i class="fas fa-lg fa-list-ul float-right"></i>
+                </button>
+            </div>
+            <div class="col-1 mx-1">
+                <button type="button" class="btn">
+                    <i class="fas fa-lg fa-sort-numeric-down float-right"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</nav>
 <div class="container-fluid ">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -57,37 +78,47 @@
                     </thead>
                     <tbody>
                     <tr class="wbdv-row wbdv-course">
-                        <th scope="row" class="wbdv-row wbdv-icon"><i class="fas fa-book"></i></th>
-                        <td class="wbdv-row wbdv-title">CS 5610 - Web Development</td>
-                        <td class="d-none d-md-table-cell wbdv-row wbdv-owner">Jose Annunziato</td>
-                        <td class="d-none d-md-table-cell wbdv-row wbdv-modified-date">1/14/2020
+                        <th scope="row" class="align-middle wbdv-row wbdv-icon"><i class="fas fa-book"></i></th>
+                        <td class="align-middle wbdv-row wbdv-title">CS 5610 - Web Development</td>
+                        <td class="align-middle d-none d-md-table-cell wbdv-row wbdv-owner">Jose Annunziato</td>
+                        <td class="align-middle d-none d-md-table-cell wbdv-row wbdv-modified-date">1/14/2020
                         </td>
-                        <td><i class="fas fa-trash wbdv-row wbdv-button wbdv-delete"></i></td>
+                        <td class="align-middle wbdv-row wbdv-button wbdv-delete">
+                            <button type="button" class="btn"><i class="fas fa-trash"></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row"><i class="fas fa-book"></i></th>
-                        <td>CS 2010 - Programming Design Paradigms</td>
-                        <td class="d-none d-md-table-cell">Amit Shesh</td>
-                        <td class="d-none d-md-table-cell">12/20/2019</td>
-                        <td><i class="fas fa-trash"></i></td>
+                        <td class="align-middle wbdv-row wbdv-title">CS 2010 - Programming Design Paradigms</td>
+                        <td class="align-middle d-none d-md-table-cell wbdv-row wbdv-owner">Amit Shesh</td>
+                        <td class="align-middle d-none d-md-table-cell wbdv-row wbdv-modified-date">12/20/2019</td>
+                        <td class="align-middle wbdv-row wbdv-button wbdv-delete">
+                            <button type="button" class="btn"><i class="fas fa-trash"></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row"><i class="fas fa-book"></i></th>
-                        <td>CS 6200 - Information Retrieval</td>
-                        <td class="d-none d-md-table-cell">David Smith</td>
-                        <td class="d-none d-md-table-cell">11/13/2019</td>
-                        <td><i class="fas fa-trash"></i></td>
+                        <td class="align-middle wbdv-row wbdv-title">CS 6200 - Information Retrieval</td>
+                        <td class="align-middle d-none d-md-table-cell wbdv-row wbdv-owner">David Smith</td>
+                        <td class="align-middle d-none d-md-table-cell wbdv-row wbdv-modified-date">11/13/2019</td>
+                        <td class="align-middle wbdv-row wbdv-button wbdv-delete">
+                            <button type="button" class="btn"><i class="fas fa-trash"></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row"><i class="fas fa-book"></i></th>
-                        <td>CS 5800 - Algorithms</td>
-                        <td class="d-none d-md-table-cell">John Park</td>
-                        <td class="d-none d-md-table-cell">1/10/2020</td>
-                        <td><i class="fas fa-trash"></i></td>
+                        <td class="align-middle wbdv-row wbdv-title">CS 5800 - Algorithms</td>
+                        <td class="align-middle d-none d-md-table-cell wbdv-row wbdv-owner">John Park</td>
+                        <td class="align-middle d-none d-md-table-cell wbdv-row wbdv-modified-date">1/10/2020</td>
+                        <td class="align-middle wbdv-row wbdv-button wbdv-delete">
+                            <button type="button" class="btn"><i class="fas fa-trash"></i></button>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+</div>
+</body>
 </html>
