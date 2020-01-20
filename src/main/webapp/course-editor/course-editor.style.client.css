@@ -25,3 +25,7 @@ input.transparent-input {
     border-width: 0 0 1px;
     border-color: #343a40;
 }
+
+.wbdv-widget-header, .wbdv-module-item-title {
+    display: inline-block;
+}
