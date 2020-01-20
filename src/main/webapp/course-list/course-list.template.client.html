@@ -12,28 +12,32 @@
     <title>Course List | Whiteboard</title>
 </head>
 <body>
-<nav class="navbar sticky-top navbar-dark bg-dark">
-    <div class="container-fluid">
-        <div class="row w-100">
-            <div class="col-1 mt-1">
-                <button class="navbar-toggler wbdv-field wbdv-hamburger" type="button">
-                    <span><i class="fas fa-bars"></i></span></button>
-            </div>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav mr-auto ">
+        <li class="nav-item mr-2">
+            <button class="btn btn-outline-light wbdv-field wbdv-hamburger">
+                <i class="fas fa-bars text-light "></i>
+            </button>
+        </li>
+    </ul>
+    <div class=" d-none d-sm-block">
+        <a class=" navbar-brand wbdv-label wbdv-course-manager" href="#">Course Manager</a>
+    </div>
+    <div class="collapse navbar-collapse ">
+    </div>
+    <ul class="nav navbar-nav">
 
-            <div class="col-4 d-none d-sm-block">
-                <span class="navbar-brand wbdv-label wbdv-course-manager ">Course Manager</span>
-            </div>
-            <div class="col-6 offset-1 offset-sm-0">
-                <input class=" form-control wbdv-field wbdv-new-course" type="text"
+        <div class="form-inline my-2 my-lg-0">
+            <li>
+                <input class=" form-control mr-sm-2 wbdv-field wbdv-new-course" type="text"
                        placeholder="New Course Title">
-            </div>
-            <div class="col-1">
-                <button type="button" class="btn wbdv-button wbdv-add-course"><i
+            </li>
+            <li>
+                <button type="button" class="btn my-2 my-sm-0 wbdv-button wbdv-add-course"><i
                         class="fa fa-plus-circle fa-lg text-light"></i></button>
-            </div>
+            </li>
         </div>
-    </div>
-    </div>
+    </ul>
 </nav>
 <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
