@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link href="user-admin.style.client.css" rel="stylesheet"/>
     <title>User Admin</title>
 </head>
 <body>
@@ -29,7 +30,7 @@
                         <th scope="col">Role</th>
                         <th>&nbsp;</th>
                     </tr>
-                    </thead>
+
                     <tr class="wbdv-form">
                         <td><input id="usernameFld" class="form-control"
                                    placeholder="Username"/></td>
@@ -40,37 +41,38 @@
                         <td><input id="lastNameFld" class="form-control"
                                    placeholder="Last Name"/></td>
                         <td><select id="roleFld" class="form-control">
-                            <option value="FACULTY">Faculty</option>
-                            <option value="STUDENT">Student</option>
-                            <option value="ADMIN">Admin</option>
-                        </select></td>
+                            <option value="faculty">Faculty</option>
+                            <option value="student">Student</option>
+                            <option value="admin">Admin</option>
+                            </select>
+                        </td>
                         <td><span
                                 class="float-right"
                                 style="white-space: nowrap">
                             <button class="btn px-2"><i
                                     class="fa fa-search wbdv-search"></i></button>
-                            <button class="btn px-2"><i class="fa fa-plus wbdv-search"></i></button>
+                            <button class="btn px-2 wbdv-create"><i class="fa fa-plus"></i></button>
                             <button class="btn px-2"><i class="fa fa-check"></i></button>
                     </span></td>
                     </tr>
+                    </thead>
+
+                    <tbody class="wbdv-tbody">
+
 
                     <tr class="wbdv-template wbdv-user wbdv-hidden">
                         <td class="wbdv-username align-middle">ada</td>
-                        <td class="align-middle">&nbsp;</td>
+                        <td class="align-middle">•••••••••</td>
                         <td class="wbdv-first-name align-middle">Ada</td>
                         <td class="wbdv-last-name align-middle">Lovelace</td>
                         <td class="wbdv-role align-middle">FACULTY</td>
                         <td class="wbdv-actions align-middle">
                 <span class="float-right">
-                  <button class="btn px-2"><i class="fa fa-trash"></i></button>
+                  <button class="btn px-2 wbdv-delete"><i class="fa fa-trash"></i></button>
                   <button class="btn px-2"><i class="fa fa-edit"></i></button>
                 </span>
                         </td>
                     </tr>
-
-
-                    <tbody class="wbdv-tbody">
-
                     </tbody>
                 </table>
             </div>
@@ -82,5 +84,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+<script src="../services/user.service.client.js"></script>
+<script src="./user-admin.controller.client.js"></script>
 </body>
 </html>
