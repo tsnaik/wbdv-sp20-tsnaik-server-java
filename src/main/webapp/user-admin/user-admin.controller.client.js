@@ -14,21 +14,27 @@
 
         // $deleteUserBtn.click(deleteUser);
 
-        findAllUsers()
-            .then(renderUsers);
+        findAllUsers();
     };
 
-    let deleteUser = (id) => {
-        console.log();
-
+    let deleteUser = (element) => {
+        let id = element.closest('tr').attr('id');
+        console.log(element);
+        console.log(id);
         userService.deleteUser(id)
-            .then(findAllUsers).then(renderUsers);
+            .then(findAllUsers);
     };
 
     let findAllUsers = () =>
         userService
-            .findAllUsers();
+            .findAllUsers()
+            .then(renderUsers);
 
+    let findUserById = (event) =>{
+        let id = $(this).closest('tr').attr('id');
+        userService
+            .findUserById(id);
+    }
     let createUser = () => {
         let $usernameFld = $('#usernameFld');
         let $passwordFld = $('#passwordFld');
@@ -66,8 +72,7 @@
         tbody.prepend(rowClone);
 
         rowClone.find('.wbdv-delete').click(function () {
-            // console.log($(this).closest('tr').attr('id'))
-            deleteUser($(this).closest('tr').attr('id'));
+            deleteUser($(this));
         });
     };
 
