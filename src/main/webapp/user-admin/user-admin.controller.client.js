@@ -3,7 +3,6 @@
     let rowTemplate;
     let tbody;
     let $createUserBtn;
-    let $deleteUserBtn;
 
     let main = () => {
         rowTemplate = $('.wbdv-template');
@@ -19,8 +18,11 @@
             .then(renderUsers);
     };
 
-    let deleteUser = () => {
-        console.log('here');
+    let deleteUser = (id) => {
+        console.log();
+
+        userService.deleteUser(id)
+            .then(findAllUsers).then(renderUsers);
     };
 
     let findAllUsers = () =>
@@ -61,7 +63,12 @@
         rowClone.find('.wbdv-last-name').html(user.lastName);
         rowClone.find('.wbdv-role').html(user.role);
         rowClone.prop('id', user._id);
-        tbody.append(rowClone);
+        tbody.prepend(rowClone);
+
+        rowClone.find('.wbdv-delete').click(function () {
+            // console.log($(this).closest('tr').attr('id'))
+            deleteUser($(this).closest('tr').attr('id'));
+        });
     };
 
     let renderUsers = (users) => {
@@ -70,10 +77,7 @@
         for (let u in users) {
             renderUser(users[u]);
         }
-        $deleteUserBtn = $('.wbdv-delete');
-        $deleteUserBtn.click(function (event) {
-            console.log('del', $(this).closest('tr').attr('id'));
-        });
+
         // $deleteUserBtn.click(function (event) {
         //     console.log('del', $(this).closest('tr').attr('id'));
         // });
