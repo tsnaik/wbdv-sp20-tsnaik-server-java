@@ -46,18 +46,17 @@
                         </select>
                         </td>
                         <td><span
-                                class="float-right"
-                                style="white-space: nowrap">
-                            <button class="btn px-2"><i
-                                    class="fa fa-search wbdv-search"></i></button>
+                                class="float-right wbdv-row">
                             <button class="btn px-2 wbdv-create"><i class="fa fa-plus"></i></button>
-                            <button class="btn px-2"><i class="fa fa-check"></i></button>
+                            <button class="btn px-2 wbdv-update wbdv-hidden"><i
+                                    class="fa fa-check"></i></button>
+                            <button class="btn px-2 wbdv-search"><i
+                                    class="fa fa-search"></i></button>
                     </span></td>
                     </tr>
                     </thead>
 
                     <tbody class="wbdv-tbody">
-
                     <tr class="wbdv-template wbdv-user wbdv-hidden">
                         <td class="wbdv-username align-middle">ada</td>
                         <td class="align-middle">•••••••••</td>
@@ -65,10 +64,11 @@
                         <td class="wbdv-last-name align-middle">Lovelace</td>
                         <td class="wbdv-role align-middle">FACULTY</td>
                         <td class="wbdv-actions align-middle">
-                <span class="float-right">
-                  <button class="btn px-2 wbdv-delete"><i class="fa fa-trash"></i></button>
-                  <button class="btn px-2"><i class="fa fa-edit"></i></button>
-                </span>
+                            <span class="float-right wbdv-row">
+                              <button class="btn px-2 wbdv-remove" id="wbdv-remove"><i class="fa fa-trash"></i></button>
+                              <button class="btn px-2 wbdv-edit" id="wbdv-edit"><i
+                                      class="fa fa-edit"></i></button>
+                            </span>
                         </td>
                     </tr>
                     </tbody>

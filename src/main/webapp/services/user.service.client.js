@@ -10,10 +10,14 @@ function UserService() {
         method: 'GET'
     }).then((response) => response.json());
 
-    this.updateUser = (id, user) => fetch(`${this.url}${id}/`, {
-        method: 'PUT',
-        body: JSON.stringify(user)
-    }).then((response) => response.json());
+    this.updateUser = (id, user) =>
+        fetch(`${this.url}${id}/`, {
+            method: 'PUT',
+            body: JSON.stringify(user),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then((response) => response.json());
 
     // POST - Create
     this.createUser = (user) => fetch(this.url, {
