@@ -5,6 +5,10 @@ function UserService() {
         method: 'DELETE'
     }).then((response) => response.json());
 
+    let findUserById = (id) => fetch(`${this.url}${id}/`, {
+        method: 'GET'
+    }).then((response) => response.json());
+
     // POST - Create
     let createUser = (user) => fetch(this.url, {
         method: 'POST',
@@ -20,4 +24,5 @@ function UserService() {
     this.findAllUsers = findAllUsers;
     this.createUser = createUser;
     this.deleteUser = deleteUser;
+    this.findUserById = findUserById;
 }
