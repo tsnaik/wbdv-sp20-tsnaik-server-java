@@ -12,13 +12,10 @@
 
         $createUserBtn.click(createUser);
 
-        // $deleteUserBtn.click(deleteUser);
-
         findAllUsers();
     };
 
-    let deleteUser = (element) => {
-        let id = element.closest('tr').attr('id');
+    let deleteUser = (id) => {
         userService.deleteUser(id)
             .then(findAllUsers);
     };
@@ -28,8 +25,7 @@
             .findAllUsers()
             .then(renderUsers);
 
-    let findUserById = (element) => {
-        let id = element.closest('tr').attr('id');
+    let findUserById = (id) => {
         userService
             .findUserById(id)
             .then(selectUser);
@@ -79,7 +75,6 @@
             user.password = password;
         }
         delete user['_id'];
-        console.log('gotta update', user, id);
         userService.updateUser(id, user)
             .then(findAllUsers)
             .then(clearFields)
@@ -126,23 +121,18 @@
         tbody.prepend(rowClone);
 
         rowClone.find('.wbdv-remove').click(function () {
-            deleteUser($(this));
+            deleteUser(user._id);
         });
         rowClone.find('.wbdv-edit').click(function () {
-            findUserById($(this));
+            findUserById(user._id);
         });
     };
 
     let renderUsers = (users) => {
-        console.log(users);
         tbody.empty();
         for (let u in users) {
             renderUser(users[u]);
         }
-
-        // $deleteUserBtn.click(function (event) {
-        //     console.log('del', $(this).closest('tr').attr('id'));
-        // });
     };
 
     let clearFields = () => {
