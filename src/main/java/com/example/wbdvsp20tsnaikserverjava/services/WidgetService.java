@@ -1,4 +1,4 @@
-package com.example.wbdvsp20tsnaikserverjava.models.services;
+package com.example.wbdvsp20tsnaikserverjava.services;
 
 import com.example.wbdvsp20tsnaikserverjava.models.Widget;
 
@@ -29,7 +29,7 @@ public class WidgetService {
     widgets.add(w2);
   }
 
-  public Widget createService(String topicId, Widget widget) {
+  public Widget createWidget(String topicId, Widget widget) {
     widgets.add(widget);
     return widget;
   }
@@ -48,7 +48,7 @@ public class WidgetService {
     return widgets;
   }
 
-  public Widget findWidgetsById(String id) {
+  public Widget findWidgetById(String id) {
     for (Widget w : widgets) {
       if (id.equals(w.getId())) {
         return w;
