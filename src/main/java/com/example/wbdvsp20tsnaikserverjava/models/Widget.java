@@ -13,6 +13,7 @@ public class Widget {
   private String cssClass;
   private String style;
   private String value;
+  private String topicId;
 
   public String getId() {
     return id;
@@ -108,5 +109,13 @@ public class Widget {
 
   public void setValue(String value) {
     this.value = value;
+  }
+
+  public String getTopicId() {
+    return topicId;
+  }
+
+  public void setTopicId(String topicId) {
+    this.topicId = topicId;
   }
 }
