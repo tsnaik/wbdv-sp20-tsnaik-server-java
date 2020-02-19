@@ -4,8 +4,10 @@ import com.example.wbdvsp20tsnaikserverjava.models.Widget;
 
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,8 +31,23 @@ public class WidgetService {
     widgets.add(w2);
   }
 
+  public List<Widget> saveAllWidgets(String topicId, List<Widget> widgets) {
+    removeAllWidgets(topicId);
+    for (Widget widget: widgets) {
+      createWidget(topicId, widget);
+    }
+    return widgets;
+  }
+
+  private void removeAllWidgets(String topicId) {
+    widgets = widgets.stream()
+            .filter(w -> !w.getTopicId().equals(topicId)).collect(Collectors.toList());
+  }
   public Widget createWidget(String topicId, Widget widget) {
+    widget.setTopicId(topicId);
+    widget.setId(Long.toString(new Random().nextLong()));
     widgets.add(widget);
+    System.out.println("widget = " + widget);
     return widget;
   }
 

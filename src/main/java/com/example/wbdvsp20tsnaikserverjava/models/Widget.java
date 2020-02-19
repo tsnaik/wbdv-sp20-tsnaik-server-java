@@ -1,11 +1,15 @@
 package com.example.wbdvsp20tsnaikserverjava.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Widget {
+  @JsonProperty("_id")
   private String id;
   private String name;
   private String type;
   private String order;
   private String text;
+  private String paragraphText;
   private String url;
   private Integer size;
   private Integer width;
@@ -14,6 +18,26 @@ public class Widget {
   private String style;
   private String value;
   private String topicId;
+
+  @Override
+  public String toString() {
+    return "Widget{" +
+            "id='" + id + '\'' +
+            ", name='" + name + '\'' +
+            ", type='" + type + '\'' +
+            ", order='" + order + '\'' +
+            ", text='" + text + '\'' +
+            ", paragraphText='" + paragraphText + '\'' +
+            ", url='" + url + '\'' +
+            ", size=" + size +
+            ", width=" + width +
+            ", height=" + height +
+            ", cssClass='" + cssClass + '\'' +
+            ", style='" + style + '\'' +
+            ", value='" + value + '\'' +
+            ", topicId='" + topicId + '\'' +
+            '}';
+  }
 
   public String getId() {
     return id;
@@ -117,5 +141,13 @@ public class Widget {
 
   public void setTopicId(String topicId) {
     this.topicId = topicId;
+  }
+
+  public String getParagraphText() {
+    return paragraphText;
+  }
+
+  public void setParagraphText(String paragraphText) {
+    this.paragraphText = paragraphText;
   }
 }
