@@ -27,7 +27,7 @@ public class WidgetController {
     return service.createWidget(tid, widget);
   }
 
-  @PostMapping("/api/topics/{tid}/widgets-collection")
+  @PutMapping("/api/topics/{tid}/widgets")
   public List<Widget> saveAllWidgets(@PathVariable("tid") String tid, @RequestBody List<Widget> widgets) {
     return service.saveAllWidgets(tid, widgets);
   }
