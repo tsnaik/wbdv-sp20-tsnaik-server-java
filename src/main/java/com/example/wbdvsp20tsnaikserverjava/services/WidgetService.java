@@ -4,7 +4,7 @@ import com.example.wbdvsp20tsnaikserverjava.models.Widget;
 
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -14,28 +14,9 @@ import java.util.stream.Collectors;
 public class WidgetService {
   List<Widget> widgets = new ArrayList<>();
 
-  {
-    Widget w1 = new Widget();
-    Widget w2 = new Widget();
-    w1.setName("Widget 1");
-    w1.setId("123");
-    w1.setType("HEADING");
-    w1.setText("Welcome to WebDev!");
-    w1.setSize(2);
-    w1.setTopicId("111");
-    w2.setName("Widget 2");
-    w2.setId("234");
-    w2.setType("PARAGRAPH");
-    w2.setTopicId("222");
-    widgets.add(w1);
-    widgets.add(w2);
-  }
-
   public List<Widget> saveAllWidgets(String topicId, List<Widget> widgets) {
     removeAllWidgets(topicId);
-    for (Widget widget: widgets) {
-      createWidget(topicId, widget);
-    }
+    this.widgets.addAll(widgets);
     return widgets;
   }
 
@@ -47,7 +28,6 @@ public class WidgetService {
     widget.setTopicId(topicId);
     widget.setId(Long.toString(new Random().nextLong()));
     widgets.add(widget);
-    System.out.println("widget = " + widget);
     return widget;
   }
 
