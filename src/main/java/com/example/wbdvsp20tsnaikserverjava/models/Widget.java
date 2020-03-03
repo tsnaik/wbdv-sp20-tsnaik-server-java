@@ -3,7 +3,10 @@ package com.example.wbdvsp20tsnaikserverjava.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -11,7 +14,8 @@ import javax.persistence.Table;
 public class Widget {
   @JsonProperty("_id")
   @Id
-  private String id;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
   private String name;
   private String type;
   private String ordering;
@@ -24,7 +28,7 @@ public class Widget {
   private String cssClass;
   private String style;
   private String value;
-  private String topicId;
+  private Topic topic;
 
   @Override
   public String toString() {
@@ -42,15 +46,14 @@ public class Widget {
             ", cssClass='" + cssClass + '\'' +
             ", style='" + style + '\'' +
             ", value='" + value + '\'' +
-            ", topicId='" + topicId + '\'' +
             '}';
   }
 
-  public String getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
@@ -140,14 +143,6 @@ public class Widget {
 
   public void setValue(String value) {
     this.value = value;
-  }
-
-  public String getTopicId() {
-    return topicId;
-  }
-
-  public void setTopicId(String topicId) {
-    this.topicId = topicId;
   }
 
   public String getParagraphText() {

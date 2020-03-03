@@ -1,7 +1,9 @@
 package com.example.wbdvsp20tsnaikserverjava.services;
 
 import com.example.wbdvsp20tsnaikserverjava.models.Widget;
+import com.example.wbdvsp20tsnaikserverjava.repositories.WidgetRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -14,6 +16,8 @@ import java.util.stream.Collectors;
 public class WidgetService {
   List<Widget> widgets = new ArrayList<>();
 
+  @Autowired
+  WidgetRepository widgetRepository;
   public List<Widget> saveAllWidgets(String topicId, List<Widget> widgets) {
     removeAllWidgets(topicId);
     this.widgets.addAll(widgets);
@@ -21,20 +25,19 @@ public class WidgetService {
   }
 
   private void removeAllWidgets(String topicId) {
-    widgets = widgets.stream()
-            .filter(w -> !w.getTopicId().equals(topicId)).collect(Collectors.toList());
+//    widgets = widgets.stream()
+//            .filter(w -> !w.getTopicId().equals(topicId)).collect(Collectors.toList());
   }
   public Widget createWidget(String topicId, Widget widget) {
-    widget.setTopicId(topicId);
-    widget.setId(Long.toString(new Random().nextLong()));
-    widgets.add(widget);
+//    widget.setTopicId(topicId);
+    widgetRepository.save(widget);
     return widget;
   }
 
   public List<Widget> findWidgetsForTopic(String topicId) {
     List<Widget> resultWidgets = new ArrayList<Widget>();
     for (Widget w : widgets) {
-      if (topicId.equals(w.getTopicId())) {
+      if (topicId.equals(/*w.getTopicId()*/null)) {
         resultWidgets.add(w);
       }
     }
@@ -45,7 +48,7 @@ public class WidgetService {
     return widgets;
   }
 
-  public Widget findWidgetById(String id) {
+  public Widget findWidgetById(Integer id) {
     for (Widget w : widgets) {
       if (id.equals(w.getId())) {
         return w;
@@ -55,14 +58,8 @@ public class WidgetService {
   }
 
   public int updateWidget(String widgetId, Widget updateWidget) {
-    for (int i = 0; i < widgets.size(); i++) {
-      Widget widget = widgets.get(i);
-      if (widget.getId().equals(widgetId)) {
-        widgets.set(i, updateWidget);
-        return 1;
-      }
-    }
-    return 0;
+    widgetRepository.save(updateWidget);
+    return 1;
   }
 
   public int deleteWidget(String widgetId) {
