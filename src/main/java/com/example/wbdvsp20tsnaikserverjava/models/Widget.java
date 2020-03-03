@@ -2,12 +2,19 @@ package com.example.wbdvsp20tsnaikserverjava.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "widgets")
 public class Widget {
   @JsonProperty("_id")
+  @Id
   private String id;
   private String name;
   private String type;
-  private String order;
+  private String ordering;
   private String text;
   private String paragraphText;
   private String url;
@@ -25,7 +32,7 @@ public class Widget {
             "id='" + id + '\'' +
             ", name='" + name + '\'' +
             ", type='" + type + '\'' +
-            ", order='" + order + '\'' +
+            ", order='" + ordering + '\'' +
             ", text='" + text + '\'' +
             ", paragraphText='" + paragraphText + '\'' +
             ", url='" + url + '\'' +
@@ -63,12 +70,12 @@ public class Widget {
     this.type = type;
   }
 
-  public String getOrder() {
-    return order;
+  public String getOrdering() {
+    return ordering;
   }
 
-  public void setOrder(String order) {
-    this.order = order;
+  public void setOrdering(String ordering) {
+    this.ordering = ordering;
   }
 
   public String getText() {
