@@ -1,5 +1,6 @@
 package com.example.wbdvsp20tsnaikserverjava.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Entity;
@@ -18,7 +19,7 @@ public class Widget {
   private Integer id;
   private String name;
   private String type;
-  private String ordering;
+  private Integer ordering;
   private String text;
   private String paragraphText;
   private String url;
@@ -28,15 +29,25 @@ public class Widget {
   private String cssClass;
   private String style;
   private String value;
+  @ManyToOne
+  @JsonIgnore
   private Topic topic;
+
+  public Topic getTopic() {
+    return topic;
+  }
+
+  public void setTopic(Topic topic) {
+    this.topic = topic;
+  }
 
   @Override
   public String toString() {
     return "Widget{" +
-            "id='" + id + '\'' +
+            "id=" + id +
             ", name='" + name + '\'' +
             ", type='" + type + '\'' +
-            ", order='" + ordering + '\'' +
+            ", ordering='" + ordering + '\'' +
             ", text='" + text + '\'' +
             ", paragraphText='" + paragraphText + '\'' +
             ", url='" + url + '\'' +
@@ -46,6 +57,7 @@ public class Widget {
             ", cssClass='" + cssClass + '\'' +
             ", style='" + style + '\'' +
             ", value='" + value + '\'' +
+            ", topic=" + topic +
             '}';
   }
 
@@ -73,11 +85,11 @@ public class Widget {
     this.type = type;
   }
 
-  public String getOrdering() {
+  public Integer getOrdering() {
     return ordering;
   }
 
-  public void setOrdering(String ordering) {
+  public void setOrdering(Integer ordering) {
     this.ordering = ordering;
   }
 

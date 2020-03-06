@@ -1,7 +1,6 @@
 package com.example.wbdvsp20tsnaikserverjava.repositories;
 
 import com.example.wbdvsp20tsnaikserverjava.models.Topic;
-import com.example.wbdvsp20tsnaikserverjava.models.Widget;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -17,8 +16,8 @@ public interface TopicRepository
   List<Topic> findTopicsForLesson(@Param("lid") String lessonId);
 
   @Query(value = "SELECT * FROM topics", nativeQuery = true)
-  List<Topic> findAllWidgets();
+  List<Topic> findAllTopics();
 
   @Query(value = "SELECT * FROM topics WHERE id=:tid", nativeQuery = true)
-  Topic findWidgetById(@Param("wid") Integer topicId);
+  Topic findTopicById(@Param("tid") Integer topicId);
 }
