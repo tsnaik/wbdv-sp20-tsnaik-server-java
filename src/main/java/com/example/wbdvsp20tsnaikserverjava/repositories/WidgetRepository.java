@@ -13,7 +13,7 @@ public interface WidgetRepository
         extends CrudRepository<Widget, Integer> {
 
   //   SELECT * FROM widgets WHERE topic_id=tid
-  @Query(value = "SELECT * FROM widgets WHERE topic_id=:tid", nativeQuery = true)
+  @Query(value = "SELECT * FROM widgets WHERE topic_id=:tid ORDER BY ordering", nativeQuery = true)
   List<Widget> findWidgetsForTopic(@Param("tid") Integer topicId);
 
   @Query(value = "SELECT * FROM widgets", nativeQuery = true)
@@ -24,7 +24,4 @@ public interface WidgetRepository
 
   @Query(value = "SELECT max(ordering) FROM widgets where topic_id=:tid", nativeQuery = true)
   Optional<Integer> findMaxOrderForTopic(@Param("tid") Integer topicId);
-
-  @Query(value = "DELETE from widgets where topic_id=:tid", nativeQuery = true)
-  void removeAllByTopic(@Param("tid") Integer topicId);
 }

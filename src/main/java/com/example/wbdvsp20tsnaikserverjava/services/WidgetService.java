@@ -21,22 +21,18 @@ public class WidgetService {
 
   public List<Widget> saveAllWidgets(Integer topicId, List<Widget> widgets) {
     int order = 0;
-    removeAllWidgets(topicId);
     Optional<Topic> topic = topicRepository.findById(topicId);
     if (!topic.isPresent()) {
       throw new IllegalArgumentException();
     }
     Topic topic1 = topic.get();
     for (Widget widget : widgets) {
+      widgetRepository.deleteById(widget.getId());
       widget.setTopic(topic1);
       widget.setOrdering(order++);
       widgetRepository.save(widget);
     }
-    return widgetRepository.findAllWidgets();
-  }
-
-  private void removeAllWidgets(Integer topicId) {
-    widgetRepository.removeAllByTopic(topicId);
+    return widgets;
   }
 
   public Widget createWidget(Integer topicId, Widget widget) {
@@ -64,7 +60,10 @@ public class WidgetService {
   }
 
   public int updateWidget(Integer widgetId, Widget updateWidget) {
+    Widget widget = widgetRepository.findById(widgetId).orElseThrow(IllegalArgumentException::new);
+    updateWidget.setTopic(widget.getTopic());
     widgetRepository.save(updateWidget);
+    System.out.println(updateWidget);
     return 1;
   }
 

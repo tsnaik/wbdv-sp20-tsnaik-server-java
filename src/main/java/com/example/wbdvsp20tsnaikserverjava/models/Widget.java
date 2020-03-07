@@ -19,6 +19,7 @@ public class Widget {
   private Integer id;
   private String name;
   private String type;
+  @JsonIgnore
   private Integer ordering;
   private String text;
   private String paragraphText;
