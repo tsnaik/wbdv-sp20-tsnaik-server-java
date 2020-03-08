@@ -1,6 +1,8 @@
 package com.example.wbdvsp20tsnaikserverjava.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 import java.util.List;
 
@@ -17,6 +19,7 @@ public class Topic {
   @JsonProperty("_id")
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @JsonSerialize(using = ToStringSerializer.class)
   private Integer id;
   private String title;
   private String description;

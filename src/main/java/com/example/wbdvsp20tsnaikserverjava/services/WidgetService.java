@@ -27,7 +27,8 @@ public class WidgetService {
     }
     Topic topic1 = topic.get();
     for (Widget widget : widgets) {
-      widgetRepository.deleteById(widget.getId());
+      System.out.println("widget = " + widget);
+//      widgetRepository.deleteById(widget.getId());
       widget.setTopic(topic1);
       widget.setOrdering(order++);
       widgetRepository.save(widget);
@@ -63,12 +64,13 @@ public class WidgetService {
     Widget widget = widgetRepository.findById(widgetId).orElseThrow(IllegalArgumentException::new);
     updateWidget.setTopic(widget.getTopic());
     widgetRepository.save(updateWidget);
-    System.out.println(updateWidget);
     return 1;
   }
 
   public int deleteWidget(Integer widgetId) {
-    widgetRepository.delete(widgetRepository.findWidgetById(widgetId));
+    Widget toDelete = widgetRepository.findWidgetById(widgetId);
+    System.out.println(widgetId + ":" +toDelete);
+    widgetRepository.delete(toDelete);
     return 1;
   }
 

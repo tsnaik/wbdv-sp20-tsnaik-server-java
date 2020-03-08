@@ -2,11 +2,14 @@ package com.example.wbdvsp20tsnaikserverjava.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -16,12 +19,14 @@ public class Widget {
   @JsonProperty("_id")
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @JsonSerialize(using = ToStringSerializer.class)
   private Integer id;
   private String name;
   private String type;
   @JsonIgnore
   private Integer ordering;
   private String text;
+  @Lob
   private String paragraphText;
   private String url;
   private Integer size;
