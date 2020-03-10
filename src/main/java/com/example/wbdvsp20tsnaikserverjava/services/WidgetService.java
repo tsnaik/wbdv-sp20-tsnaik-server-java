@@ -27,8 +27,6 @@ public class WidgetService {
     }
     Topic topic1 = topic.get();
     for (Widget widget : widgets) {
-      System.out.println("widget = " + widget);
-//      widgetRepository.deleteById(widget.getId());
       widget.setTopic(topic1);
       widget.setOrdering(order++);
       widgetRepository.save(widget);
@@ -68,9 +66,7 @@ public class WidgetService {
   }
 
   public int deleteWidget(Integer widgetId) {
-    Widget toDelete = widgetRepository.findWidgetById(widgetId);
-    System.out.println(widgetId + ":" +toDelete);
-    widgetRepository.delete(toDelete);
+    widgetRepository.deleteById(widgetId);
     return 1;
   }
 

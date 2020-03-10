@@ -39,7 +39,7 @@ public class TopicService {
   }
 
   public int deleteTopic(Integer topicId) {
-    topicRepository.delete(topicRepository.findTopicById(topicId));
+    topicRepository.deleteById(topicId);
     return 1;
   }
 
