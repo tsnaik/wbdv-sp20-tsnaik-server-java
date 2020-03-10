@@ -44,8 +44,6 @@ public class TopicService {
   }
 
   public int deleteTopic(Integer topicId) {
-    List<Widget> widgetsForTopic = widgetRepository.findWidgetsForTopic(topicId);
-    widgetRepository.deleteAll(widgetsForTopic);
     topicRepository.deleteById(topicId);
     return 1;
   }

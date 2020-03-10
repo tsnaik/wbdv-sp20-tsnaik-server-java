@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -24,6 +27,7 @@ public class Topic {
   private String title;
   private String description;
   @OneToMany(mappedBy = "topic")
+  @OnDelete(action = OnDeleteAction.CASCADE)
   private List<Widget> widgets;
   private String lessonId;
 
