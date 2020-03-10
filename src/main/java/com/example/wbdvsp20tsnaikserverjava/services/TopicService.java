@@ -1,7 +1,9 @@
 package com.example.wbdvsp20tsnaikserverjava.services;
 
 import com.example.wbdvsp20tsnaikserverjava.models.Topic;
+import com.example.wbdvsp20tsnaikserverjava.models.Widget;
 import com.example.wbdvsp20tsnaikserverjava.repositories.TopicRepository;
+import com.example.wbdvsp20tsnaikserverjava.repositories.WidgetRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,9 @@ import java.util.List;
 public class TopicService {
   @Autowired
   TopicRepository topicRepository;
+
+  @Autowired
+  WidgetRepository widgetRepository;
 
   public Topic createTopic(String lessonId, Topic topic) {
     topic.setLessonId(lessonId);
@@ -39,6 +44,8 @@ public class TopicService {
   }
 
   public int deleteTopic(Integer topicId) {
+    List<Widget> widgetsForTopic = widgetRepository.findWidgetsForTopic(topicId);
+    widgetRepository.deleteAll(widgetsForTopic);
     topicRepository.deleteById(topicId);
     return 1;
   }

@@ -29,8 +29,8 @@ public class WidgetService {
     for (Widget widget : widgets) {
       widget.setTopic(topic1);
       widget.setOrdering(order++);
-      widgetRepository.save(widget);
     }
+    widgetRepository.saveAll(widgets);
     return widgets;
   }
 
